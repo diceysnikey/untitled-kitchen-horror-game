@@ -1,16 +1,25 @@
-[gd_scene format=3 uid="uid://coe6l31wg2js5"]
+[gd_scene load_steps=4 format=3 uid="uid://coe6l31wg2js5"]
+
+[ext_resource type="Script" uid="uid://rswvcubdg25u" path="res://scripts/prep_area.gd" id="1_0apxy"]
+[ext_resource type="Script" uid="uid://dxj1li1c88mlg" path="res://scripts/dispenser.gd" id="2_ex38s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0apxy"]
+size = Vector2(107, 108)
 
 [node name="PrepArea" type="Node2D"]
+script = ExtResource("1_0apxy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -576.0
-offset_right = 576.0
-offset_bottom = 648.0
+offset_left = -569.0
+offset_top = 67.0
+offset_right = 583.0
+offset_bottom = 715.0
 grow_horizontal = 2
-color = Color(0.63529414, 0.23137255, 0.23137255, 1)
+mouse_filter = 2
+color = Color(0.99999994, 0.8072888, 0.6819582, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = -1
@@ -18,8 +27,23 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -662.0
-offset_top = -68.0
 offset_right = 672.0
-offset_bottom = 715.0
+offset_bottom = 783.0
 grow_horizontal = 2
-color = Color(0.3647059, 1, 1, 1)
+mouse_filter = 2
+color = Color(0.18039216, 1, 1, 1)
+
+[node name="Dispenser" type="Area2D" parent="."]
+script = ExtResource("2_ex38s")
+
+[node name="ColorRect" type="ColorRect" parent="Dispenser"]
+offset_left = -494.0
+offset_top = 114.0
+offset_right = -385.0
+offset_bottom = 223.0
+mouse_filter = 2
+color = Color(0.43134022, 0.43134025, 0.43134025, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser"]
+position = Vector2(-439.5, 168)
+shape = SubResource("RectangleShape2D_0apxy")
