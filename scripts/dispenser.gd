@@ -8,9 +8,9 @@ func _mouse_exited_dispenser() -> void:
 	mouseInsideDispenser = false
 
 func _spawn_patty() -> void:
-	var rawPattyInstance = preload("res://scenes/raw_patty.tscn").instantiate()
-	get_parent().add_child(rawPattyInstance)
-	rawPattyInstance.position = get_global_mouse_position()
+	var PattyInstance = preload("res://scenes/patty.tscn").instantiate()
+	get_parent().add_child(PattyInstance)
+	PattyInstance.position = get_global_mouse_position()
 
 func _ready() -> void:
 	mouse_entered.connect(_mouse_entered_dispenser)

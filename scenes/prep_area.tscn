@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://coe6l31wg2js5"]
+[gd_scene load_steps=9 format=3 uid="uid://coe6l31wg2js5"]
 
 [ext_resource type="Script" uid="uid://rswvcubdg25u" path="res://scripts/prep_area.gd" id="1_0apxy"]
 [ext_resource type="Script" uid="uid://dxj1li1c88mlg" path="res://scripts/dispenser.gd" id="2_ex38s"]
+[ext_resource type="Script" uid="uid://bin20n7y5s2mc" path="res://scripts/grill.gd" id="3_sy43s"]
+[ext_resource type="Texture2D" uid="uid://c75v5ii127qv7" path="res://textures_and_audios/grill.png" id="4_nkrx8"]
+[ext_resource type="Script" uid="uid://d0kcp83oa6alf" path="res://scripts/bin.gd" id="5_nkrx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0apxy"]
 size = Vector2(107, 108)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1gi2"]
+radius = 83.0542
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1gi2"]
+size = Vector2(141, 140)
 
 [node name="PrepArea" type="Node2D"]
 script = ExtResource("1_0apxy")
@@ -47,3 +56,30 @@ color = Color(0.43134022, 0.43134025, 0.43134025, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser"]
 position = Vector2(-439.5, 168)
 shape = SubResource("RectangleShape2D_0apxy")
+
+[node name="Grill" type="Area2D" parent="."]
+script = ExtResource("3_sy43s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Grill"]
+position = Vector2(349, 219)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_nkrx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grill"]
+position = Vector2(350, 220)
+shape = SubResource("CircleShape2D_r1gi2")
+
+[node name="Bin" type="Area2D" parent="."]
+script = ExtResource("5_nkrx8")
+
+[node name="ColorRect" type="ColorRect" parent="Bin"]
+offset_left = -515.0
+offset_top = 499.0
+offset_right = -374.0
+offset_bottom = 640.0
+mouse_filter = 2
+color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bin"]
+position = Vector2(-444.5, 569)
+shape = SubResource("RectangleShape2D_r1gi2")

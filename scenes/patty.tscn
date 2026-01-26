@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://du4kd4fh2jvl6"]
+
+[ext_resource type="Script" uid="uid://cmmmeu71ll7qf" path="res://scripts/patty.gd" id="1_nuo2h"]
+[ext_resource type="Texture2D" uid="uid://ojfy06uomow6" path="res://textures_and_audios/burntpatty.png" id="2_g3km5"]
+[ext_resource type="Texture2D" uid="uid://w17kjdfas0jt" path="res://textures_and_audios/rawpatty.png" id="2_hydag"]
+[ext_resource type="Texture2D" uid="uid://062w7kuu8ffg" path="res://textures_and_audios/grilledpatty.png" id="3_2jbjd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_piuow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g3km5")
+}],
+"loop": true,
+"name": &"burnt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2jbjd")
+}],
+"loop": true,
+"name": &"grilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hydag")
+}],
+"loop": true,
+"name": &"raw",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvbhw"]
+radius = 103.58572
+
+[node name="RawPatty" type="Node2D" groups=["patty"]]
+z_index = 1
+script = ExtResource("1_nuo2h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.9999962, 5.999996)
+scale = Vector2(0.86, 0.86)
+sprite_frames = SubResource("SpriteFrames_piuow")
+animation = &"burnt"
+
+[node name="Area2D" type="Area2D" parent="."]
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 4)
+shape = SubResource("CircleShape2D_tvbhw")
