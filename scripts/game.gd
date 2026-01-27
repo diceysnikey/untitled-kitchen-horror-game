@@ -10,13 +10,12 @@ func _check_fullscreen_input() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
 	elif Input.is_action_just_pressed("fullscreen"):
 		isFullscreen = false
-		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED)
 
 func _check_camera_input() -> void:
 	if Input.is_action_just_pressed("LookUp") and not isCameraUp:
 		isCameraUp = true
 		$Camera2D.position.y -= cameraMoveDistance
-		
 	elif Input.is_action_just_pressed("LookDown") and isCameraUp:
 		isCameraUp = false
 		$Camera2D.position.y += cameraMoveDistance

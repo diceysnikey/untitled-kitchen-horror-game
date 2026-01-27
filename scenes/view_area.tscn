@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://m35dna3lmfjf"]
 
-[node name="ViewArea" type="Node2D"]
+[node name="ViewArea" type="Node2D" unique_id=412413038]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=100026953]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -11,9 +11,10 @@ offset_top = -715.0
 offset_right = 583.0
 offset_bottom = -67.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0.63529414, 0.8235294, 0.23137255, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=326023814]
 z_index = -1
 anchors_preset = 5
 anchor_left = 0.5
@@ -22,4 +23,5 @@ offset_left = -662.0
 offset_top = -783.0
 offset_right = 672.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0.3647059, 0.6117647, 1, 1)

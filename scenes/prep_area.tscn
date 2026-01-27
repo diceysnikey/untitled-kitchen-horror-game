@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coe6l31wg2js5"]
+[gd_scene format=3 uid="uid://coe6l31wg2js5"]
 
 [ext_resource type="Script" uid="uid://rswvcubdg25u" path="res://scripts/prep_area.gd" id="1_0apxy"]
 [ext_resource type="Script" uid="uid://dxj1li1c88mlg" path="res://scripts/dispenser.gd" id="2_ex38s"]
@@ -15,10 +15,10 @@ radius = 83.0542
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1gi2"]
 size = Vector2(141, 140)
 
-[node name="PrepArea" type="Node2D"]
+[node name="PrepArea" type="Node2D" unique_id=1408372407]
 script = ExtResource("1_0apxy")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=718174344]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -30,7 +30,7 @@ grow_horizontal = 2
 mouse_filter = 2
 color = Color(0.99999994, 0.8072888, 0.6819582, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=756462797]
 z_index = -1
 anchors_preset = 5
 anchor_left = 0.5
@@ -42,10 +42,10 @@ grow_horizontal = 2
 mouse_filter = 2
 color = Color(0.18039216, 1, 1, 1)
 
-[node name="Dispenser" type="Area2D" parent="."]
+[node name="Dispenser" type="Area2D" parent="." unique_id=676386868]
 script = ExtResource("2_ex38s")
 
-[node name="ColorRect" type="ColorRect" parent="Dispenser"]
+[node name="ColorRect" type="ColorRect" parent="Dispenser" unique_id=1523043135]
 offset_left = -494.0
 offset_top = 114.0
 offset_right = -385.0
@@ -53,26 +53,26 @@ offset_bottom = 223.0
 mouse_filter = 2
 color = Color(0.43134022, 0.43134025, 0.43134025, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dispenser" unique_id=982259806]
 position = Vector2(-439.5, 168)
 shape = SubResource("RectangleShape2D_0apxy")
 
-[node name="Grill" type="Area2D" parent="."]
+[node name="Grill" type="Area2D" parent="." unique_id=1548865436]
 script = ExtResource("3_sy43s")
 
-[node name="Sprite2D" type="Sprite2D" parent="Grill"]
+[node name="Sprite2D" type="Sprite2D" parent="Grill" unique_id=1081740366]
 position = Vector2(349, 219)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_nkrx8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grill"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grill" unique_id=1178232792]
 position = Vector2(350, 220)
 shape = SubResource("CircleShape2D_r1gi2")
 
-[node name="Bin" type="Area2D" parent="."]
+[node name="Bin" type="Area2D" parent="." unique_id=842401948]
 script = ExtResource("5_nkrx8")
 
-[node name="ColorRect" type="ColorRect" parent="Bin"]
+[node name="ColorRect" type="ColorRect" parent="Bin" unique_id=1232244661]
 offset_left = -515.0
 offset_top = 499.0
 offset_right = -374.0
@@ -80,6 +80,6 @@ offset_bottom = 640.0
 mouse_filter = 2
 color = Color(0.23031491, 0.23031494, 0.23031494, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bin"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bin" unique_id=1711491181]
 position = Vector2(-444.5, 569)
 shape = SubResource("RectangleShape2D_r1gi2")

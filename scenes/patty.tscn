@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://du4kd4fh2jvl6"]
+[gd_scene format=3 uid="uid://du4kd4fh2jvl6"]
 
 [ext_resource type="Script" uid="uid://cmmmeu71ll7qf" path="res://scripts/patty.gd" id="1_nuo2h"]
 [ext_resource type="Texture2D" uid="uid://ojfy06uomow6" path="res://textures_and_audios/burntpatty.png" id="2_g3km5"]
@@ -33,21 +33,20 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvbhw"]
-radius = 103.58572
+radius = 106.0
 
-[node name="RawPatty" type="Node2D" groups=["patty"]]
+[node name="RawPatty" type="Node2D" unique_id=1435397736 groups=["patty"]]
 z_index = 1
 script = ExtResource("1_nuo2h")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.9999962, 5.999996)
-scale = Vector2(0.86, 0.86)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1053743939]
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.77142864, 0.7714286)
 sprite_frames = SubResource("SpriteFrames_piuow")
-animation = &"burnt"
+animation = &"grilled"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=6439336]
 priority = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 4)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1601014156]
 shape = SubResource("CircleShape2D_tvbhw")
