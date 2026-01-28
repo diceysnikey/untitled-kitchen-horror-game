@@ -25,3 +25,18 @@ offset_right = 672.0
 grow_horizontal = 2
 mouse_filter = 2
 color = Color(0.3647059, 0.6117647, 1, 1)
+
+[node name="Monitor" type="Node2D" parent="." unique_id=927873558]
+
+[node name="ColorRect" type="ColorRect" parent="Monitor" unique_id=1580707026]
+offset_left = -554.0
+offset_top = -358.87933
+offset_right = -339.0
+offset_bottom = -69.0
+color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Monitor" unique_id=1282199994]
+offset_left = -548.0
+offset_top = -353.0
+offset_right = -345.0
+offset_bottom = -74.0

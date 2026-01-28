@@ -14,9 +14,11 @@ func _check_fullscreen_input() -> void:
 
 func _check_camera_input() -> void:
 	if Input.is_action_just_pressed("LookUp") and not isCameraUp:
+		Signalbus.camera_moved_up.emit()
 		isCameraUp = true
 		$Camera2D.position.y -= cameraMoveDistance
 	elif Input.is_action_just_pressed("LookDown") and isCameraUp:
+		Signalbus.camera_moved_down.emit()
 		isCameraUp = false
 		$Camera2D.position.y += cameraMoveDistance
 
@@ -27,3 +29,4 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	get_viewport().physics_object_picking_sort = true
 	get_viewport().physics_object_picking_first_only = true
+	Signalbus.order_system_activated.emit()
