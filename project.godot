@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signalbus="*res://scripts/signalbus.gd"
+OrderSystem="*uid://kbbi2merbsmi"
 
 [display]
 
@@ -34,7 +35,8 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [global_group]
 
-patty=""
+eatable=""
+Patty=""
 
 [input]
 

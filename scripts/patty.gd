@@ -6,8 +6,17 @@ var distanceOffset := Vector2.ZERO
 var cookedMeter = 0
 var canCook = false
 var canDispose = false
-var cookStatus = 0 #0 raw, 1 grilled, 2 burnt
 var isCameraUp = false
+
+func _setup_connections() -> void:
+	$Area2D.mouse_entered.connect(_mouse_entered)
+	$Area2D.mouse_exited.connect(_mouse_exited)
+	Signalbus.start_cooking.connect(_can_cook)
+	Signalbus.stop_cooking.connect(_cant_cook)
+	Signalbus.patty_entered_bin.connect(_can_dispose)
+	Signalbus.patty_exited_bin.connect(_cant_dispose)
+	Signalbus.camera_moved_up.connect(_camera_moved_up)
+	Signalbus.camera_moved_down.connect(_camera_moved_down)
 
 func _mouse_entered() -> void:
 	mouseInside = true
@@ -47,10 +56,10 @@ func _cook_logic(delta) -> void:
 		cookedMeter = clamp(cookedMeter + (5 * delta), 0, 80)
 	if cookedMeter > 50 and cookedMeter < 80:
 		$AnimatedSprite2D.play("grilled")
-		cookStatus = 1
+		add_to_group("eatable")
 	elif cookedMeter == 80:
 		$AnimatedSprite2D.play("burnt")
-		cookStatus = 2
+		remove_from_group("eatable")
 
 func _can_dispose(patty: Node2D) -> void:
 	if self == patty:
@@ -66,19 +75,13 @@ func _camera_moved_down() -> void:
 
 func _ready() -> void:
 	isCameraUp = false
+	remove_from_group("eatable")
 	$AnimatedSprite2D.play("raw")
-	$Area2D.mouse_entered.connect(_mouse_entered)
-	$Area2D.mouse_exited.connect(_mouse_exited)
-	Signalbus.start_cooking.connect(_can_cook)
-	Signalbus.stop_cooking.connect(_cant_cook)
-	Signalbus.patty_entered_bin.connect(_can_dispose)
-	Signalbus.patty_exited_bin.connect(_cant_dispose)
-	Signalbus.camera_moved_up.connect(_camera_moved_up)
-	Signalbus.camera_moved_down.connect(_camera_moved_down)
+	_setup_connections()
 	
 func _process(delta: float) -> void:
 	_input_logic()
 	_cook_logic(delta)
 	if canDispose and not dragging:
 		queue_free()
-	print("Cooked: " + str(snapped(cookedMeter, 0.01)))
+	#print("Cooked: " + str(snapped(cookedMeter, 0.01)))

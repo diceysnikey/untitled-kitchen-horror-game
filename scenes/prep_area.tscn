@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bin20n7y5s2mc" path="res://scripts/grill.gd" id="3_sy43s"]
 [ext_resource type="Texture2D" uid="uid://c75v5ii127qv7" path="res://textures_and_audios/grill.png" id="4_nkrx8"]
 [ext_resource type="Script" uid="uid://d0kcp83oa6alf" path="res://scripts/bin.gd" id="5_nkrx8"]
+[ext_resource type="Script" uid="uid://bsappb344e48k" path="res://scripts/delivery_pipe.gd" id="6_r1gi2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0apxy"]
 size = Vector2(107, 108)
@@ -14,6 +15,23 @@ radius = 83.0542
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1gi2"]
 size = Vector2(141, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkrx8"]
+size = Vector2(386, 265)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1gi2"]
+bg_color = Color(0.98984355, 5.4869056e-06, 9.62615e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgebx"]
+bg_color = Color(0.7059394, 2.23808e-06, 2.8878452e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hedjg"]
+bg_color = Color(0.7059394, 2.23808e-06, 2.8878452e-07, 1)
+
+[sub_resource type="Theme" id="Theme_jdr4e"]
+Button/styles/hover = SubResource("StyleBoxFlat_r1gi2")
+Button/styles/normal = SubResource("StyleBoxFlat_qgebx")
+Button/styles/pressed = SubResource("StyleBoxFlat_hedjg")
 
 [node name="PrepArea" type="Node2D" unique_id=1408372407]
 script = ExtResource("1_0apxy")
@@ -83,3 +101,26 @@ color = Color(0.23031491, 0.23031494, 0.23031494, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bin" unique_id=1711491181]
 position = Vector2(-444.5, 569)
 shape = SubResource("RectangleShape2D_r1gi2")
+
+[node name="DeliveryPipe" type="Area2D" parent="." unique_id=1200796145]
+script = ExtResource("6_r1gi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryPipe" unique_id=93036568]
+z_index = 1
+position = Vector2(390, 582.5)
+shape = SubResource("RectangleShape2D_nkrx8")
+
+[node name="ColorRect" type="ColorRect" parent="DeliveryPipe" unique_id=1342683620]
+offset_left = 196.0
+offset_top = 450.0
+offset_right = 583.0
+offset_bottom = 715.0
+mouse_filter = 2
+color = Color(0.17435491, 0.355913, 0.17559132, 1)
+
+[node name="Button" type="Button" parent="DeliveryPipe" unique_id=993784020]
+offset_left = 128.0
+offset_top = 574.0
+offset_right = 196.0
+offset_bottom = 668.0
+theme = SubResource("Theme_jdr4e")

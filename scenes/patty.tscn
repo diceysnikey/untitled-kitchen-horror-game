@@ -35,7 +35,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvbhw"]
 radius = 106.0
 
-[node name="RawPatty" type="Node2D" unique_id=1435397736 groups=["patty"]]
+[node name="Patty" type="Node2D" unique_id=1435397736 groups=["Patty"]]
 z_index = 1
 script = ExtResource("1_nuo2h")
 

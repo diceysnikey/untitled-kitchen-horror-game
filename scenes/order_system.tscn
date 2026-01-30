@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://kbbi2merbsmi"]
+
+[ext_resource type="Script" uid="uid://boqosqouwry5m" path="res://scripts/order_system.gd" id="1_qexq3"]
+
+[node name="OrderSystem" type="Node2D" unique_id=2052582183]
+script = ExtResource("1_qexq3")
+
+[node name="Timer" type="Timer" parent="." unique_id=807914372]

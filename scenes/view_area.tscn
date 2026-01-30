@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://m35dna3lmfjf"]
 
+[ext_resource type="Script" uid="uid://cjocyx6yi8hau" path="res://scripts/monitor.gd" id="1_4s13a"]
+
 [node name="ViewArea" type="Node2D" unique_id=412413038]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=100026953]
@@ -27,6 +29,7 @@ mouse_filter = 2
 color = Color(0.3647059, 0.6117647, 1, 1)
 
 [node name="Monitor" type="Node2D" parent="." unique_id=927873558]
+script = ExtResource("1_4s13a")
 
 [node name="ColorRect" type="ColorRect" parent="Monitor" unique_id=1580707026]
 offset_left = -554.0
