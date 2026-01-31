@@ -4,7 +4,7 @@ func _check_items() -> void:
 	var order = OrderEntry.new()
 	order.value = 0
 	var items = get_overlapping_areas()
-	for item in items.filter(func(i): return i.get_parent().is_in_group("Patty")): 
+	for item in items.filter(func(i): return i.get_parent().is_in_group("eatable")): 
 		order.value += 1
 	order.name = "Patty"
 	Signalbus.order_submitted.emit(order)

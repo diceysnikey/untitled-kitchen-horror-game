@@ -3,17 +3,17 @@ extends Node2D
 var displayedOrders = []
 
 func _add_order_to_list(order: OrderEntry) -> void:
-	displayedOrders.append([order.name, order.value])
+	displayedOrders.append(order)
 	_refresh_order_list()
 
 func _remove_order_from_list(order: OrderEntry) -> void:
-	displayedOrders.erase([order.name, order.value])
+	displayedOrders.erase(order)
 	_refresh_order_list()
 
 func _refresh_order_list() -> void:
 	$RichTextLabel.text = ""
 	for order in displayedOrders:
-		$RichTextLabel.append_text(order[0] + ": " + str(order[1]))
+		$RichTextLabel.append_text(order.name + ": " + str(order.value))
 		$RichTextLabel.newline()
 
 func _ready() -> void:

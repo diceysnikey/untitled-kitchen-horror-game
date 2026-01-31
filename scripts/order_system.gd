@@ -3,7 +3,7 @@ extends Node
 var activeOrders := []
 
 func _turn_active() -> void:
-	$Timer.start(5)
+	$Timer.start(randf_range(5, 10))
 func _turn_inactive() -> void:
 	$Timer.stop()
 func _add_order() -> void:
